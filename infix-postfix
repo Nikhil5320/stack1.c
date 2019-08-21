@@ -1,0 +1,127 @@
+#include<stdio.h>
+#include<string.h>
+#define max 100
+int t=-1;
+int s[max];
+
+int full()
+{
+    if(t==max-1)
+    return 1;
+    else
+    return 0;
+}
+int empty()
+{
+    if(t==-1)
+    return 1;
+    else
+    return 0;
+}
+void push(int x)
+{
+    if(full()==1)
+    printf("the stack is full\n");
+    else
+    s[++t]=x;
+}
+void pop()
+{
+    if(empty()==1)
+    printf("there are no elements in stack\n");
+    else
+    t=t-1;
+}
+int top()
+{
+    return s[t];
+}
+
+
+
+void infix_postfix(char exp[])
+{ 
+  char res[100];
+  int j=0,i;
+
+  for(i=0;i<strlen(exp);i++);
+  { 
+    if(is_operator(exp[i]) == 0)
+    { 
+      res[j]=exp[i];
+      j++;
+    }
+    else if(is_operator(exp[i]) == 1)
+    { 
+      while(!empty && is_pre(top())>is_pre(exp[i]) &&  is_openingpara(top())==0)
+      { 
+        res[j]=exp[i];
+        j++;
+        pop();
+      }
+      {
+        push();
+      }
+    }
+    else if(exp[i]==is_openingpara(exp[i]))
+     {
+       push();
+     }
+    else if(is_closingpara(exp[i])==1)
+     {
+       while(!s.empty() && is_openingpara(top())==0)
+        {
+         res[j]=exp[i];
+         j++;
+         pop();
+        }
+       pop();
+     }
+  } 
+ while(!empty)
+ {
+  res[j]=exp[i];
+  j++;
+  pop();
+ }
+ printf("%s",res);
+}
+
+void main()
+ { 
+  char exp[100];
+  printf("enter the infix expression\n");
+  gets(exp);
+  infix_postfix(exp);
+ }
+
+int is_operator(char symbol)
+{  
+   if(symbol == '+' || symbol == '*' || symbol == '-' || symbol == '/')
+   return (1);
+   else 
+   return (0);
+}
+
+int is_pre(char x) 
+{ 
+  if(x=='+' || x=='-')
+  return (1);
+  else if(x=='*' || x=='/')
+  return (2);
+}
+
+int is_openingpara(char a)
+{ 
+  if(a=='(')
+  return (1);
+  else
+  return (0);
+}
+int is_closingpara(char b)
+{ 
+  if(b==')')
+  return (1);
+  else
+  return (0); 
+}
