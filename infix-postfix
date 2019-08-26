@@ -84,7 +84,7 @@ void infix_postfix(char exp[])
     { 
       while(empty()!=1 && is_pre(top())>is_pre(exp[i]) &&  is_openingpara(top())==0)
       { 
-        res[j]=exp[i];
+        res[j]=top();
         j++;
         pop();
       }
@@ -100,7 +100,7 @@ void infix_postfix(char exp[])
      {
        while(empty()!=1 && is_openingpara(top())==0)
         {
-         res[j]=exp[i];
+         res[j]=top();
          j++;
          pop();
         }
@@ -109,7 +109,7 @@ void infix_postfix(char exp[])
   } 
  while(empty()!=1)
  {
-  res[j]=exp[i];
+  res[j]=top();
   j++;
   pop();
  }
