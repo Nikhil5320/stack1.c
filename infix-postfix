@@ -36,65 +36,6 @@ int top()
 {
     return s[t];
 }
-
-
-
-void infix_postfix(char exp[])
-{ 
-  char res[100];
-  int j=0,i;
-
-  for(i=0;i<strlen(exp);i++);
-  { 
-    if(is_operator(exp[i]) == 0)
-    { 
-      res[j]=exp[i];
-      j++;
-    }
-    else if(is_operator(exp[i]) == 1)
-    { 
-      while(!empty && is_pre(top())>is_pre(exp[i]) &&  is_openingpara(top())==0)
-      { 
-        res[j]=exp[i];
-        j++;
-        pop();
-      }
-      {
-        push();
-      }
-    }
-    else if(exp[i]==is_openingpara(exp[i]))
-     {
-       push();
-     }
-    else if(is_closingpara(exp[i])==1)
-     {
-       while(!s.empty() && is_openingpara(top())==0)
-        {
-         res[j]=exp[i];
-         j++;
-         pop();
-        }
-       pop();
-     }
-  } 
- while(!empty)
- {
-  res[j]=exp[i];
-  j++;
-  pop();
- }
- printf("%s",res);
-}
-
-void main()
- { 
-  char exp[100];
-  printf("enter the infix expression\n");
-  gets(exp);
-  infix_postfix(exp);
- }
-
 int is_operator(char symbol)
 {  
    if(symbol == '+' || symbol == '*' || symbol == '-' || symbol == '/')
@@ -125,3 +66,61 @@ int is_closingpara(char b)
   else
   return (0); 
 }
+
+
+void infix_postfix(char exp[])
+{ 
+  char res[100];
+  int j=0,i;
+
+  for(i=0;i<strlen(exp);i++)
+  { 
+    if(is_operator(exp[i]) == 0)
+    { 
+      res[j]=exp[i];
+      j++;
+    }
+    else if(is_operator(exp[i]) == 1)
+    { 
+      while(empty()!=1 && is_pre(top())>is_pre(exp[i]) &&  is_openingpara(top())==0)
+      { 
+        res[j]=exp[i];
+        j++;
+        pop();
+      }
+      {
+        push(exp[i]);
+      }
+    }
+    else if(is_openingpara(exp[i])==1)
+     {
+       push(exp[i]);
+     }
+    else if(is_closingpara(exp[i])==1)
+     {
+       while(empty()!=1 && is_openingpara(top())==0)
+        {
+         res[j]=exp[i];
+         j++;
+         pop();
+        }
+       pop();
+     }
+  } 
+ while(empty()!=1)
+ {
+  res[j]=exp[i];
+  j++;
+  pop();
+ }
+ printf("%s",res);
+}
+
+int main()
+ { 
+  char exp[100];
+  printf("enter the infix expression\n");
+  scanf("%s",exp);
+  infix_postfix(exp);
+  return 0;
+ }
