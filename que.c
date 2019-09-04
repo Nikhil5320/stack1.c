@@ -21,12 +21,12 @@ int fr(int *front,int a[])
 }
 void enque(int x,int a[],int *front,int *rear)
 {
- if(is_full(&front,&rear) == 1)
+ if(*front==0 && *rear==(max-1))
   {
    printf("Q is full\n");
    return;
   }
- else if(is_empty(&front,&rear)==1)
+ else if(*front==-1 && *rear==-1)
   {
    *front=*rear=0;
    a[*rear]=x;
@@ -39,7 +39,7 @@ else
 }
 void deque(int a[],int *front,int *rear)
 {
-   if(is_empty(*front,*rear)==1)
+   if(*front==-1 && *rear==-1)
    { 
     printf("Q is empty");
     return;
