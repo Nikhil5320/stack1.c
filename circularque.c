@@ -3,7 +3,7 @@
 
 int is_full(int *front,int *rear)
 {
- if(*front==0 && *rear==(max-1))
+ if(*rear==(max-1))
   return 1;
  else
   return 0;
@@ -18,6 +18,11 @@ int is_empty(int *front,int *rear)
 int fr(int *front,int a[])
 {
  return a[*front];
+}
+void display(int n,int a[],int *front,int *rear)
+{
+  for(n=*front;n<=(*rear);n++)
+   printf("%d ",a[n]);
 }
 void enque(int x,int a[],int *front,int *rear)
 {
@@ -40,7 +45,7 @@ else
 void deque(int a[],int *front,int *rear)
 {
    if(*front==-1 && *rear==-1)
-   { 
+   {
     printf("Q is empty");
     return;
    }
@@ -52,10 +57,10 @@ void deque(int a[],int *front,int *rear)
 
 void main()
 {
- int a[max],f,*front=-1,*rear=-1,n,x;
-do
+ int a[max],f,*front=-1,*rear=-1,n=0,x;
+ while(n<4)
  {
-  printf("Enter 1: for enque,2: for deque,3: for to know the front element\n");
+  printf("Enter 1: for enque,2: for deque,3: for to know the que elements,4 :for to exit the process\n");
   scanf("%d",&n);
   switch(n)
     {
@@ -65,11 +70,10 @@ do
               break;
      case 2 : deque(a,&front,&rear);
              break;
-     case 3 : f=fr(&front,a);
-             printf("The front element= %d",f);
+     case 3 : display(n,a,&front,&rear);
              break;
      default : printf("invalid input");
               break;
     }
-  }while(n>3);
-} 
+  }
+}
