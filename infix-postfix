@@ -75,7 +75,7 @@ void infix_postfix(char exp[])
 
   for(i=0;i<strlen(exp);i++)
   { 
-    if(is_operator(exp[i]) == 0 && is_openingpara(exp[i])==0 && is_closingpar(exp[i])==0)
+    if(is_operator(exp[i]) == 0 && is_openingpara(exp[i])==0 && is_closingpara(exp[i])==0)
     { 
       res[j]=exp[i];
       j++;
