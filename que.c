@@ -55,7 +55,7 @@ void main()
  int a[max],f,*front=-1,*rear=-1,n=0,x;
 while(n<4)
  {
-  printf("Enter 1: for enque,2: for deque,3: for to know the front element\n");
+  printf("Enter 1: for enque,2: for deque,3: for to know the front element, 4 :for to exit the process\n");
   scanf("%d",&n);
   switch(n)
     {
