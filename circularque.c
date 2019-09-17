@@ -3,7 +3,7 @@
 
 int is_full(int *front,int *rear)
 {
- if(*rear==(max-1))
+ if((*rear==(max-1) && *front==0) || (*front==*rear+1))
   return 1;
  else
   return 0;
