@@ -26,7 +26,7 @@ void display(int n,int a[],int *front,int *rear)
 }
 void enque(int x,int a[],int *front,int *rear)
 {
- if(*front==0 && *rear==(max-1))
+ if(is_full(&front,&rear)==1)
   {
    printf("Q is full\n");
    return;
@@ -44,7 +44,7 @@ else
 }
 void deque(int a[],int *front,int *rear)
 {
-   if(*front==-1 && *rear==-1)
+   if(is_empty(&full,&rear)==1)
    {
     printf("Q is empty");
     return;
