@@ -31,6 +31,8 @@ void insert(int x)
    {
     ptr1=ptr;
     ptr=ptr->next;
+    if(ptr==0)
+     break;
    }
    ptr1->next=temp;
    temp->next=ptr;
