@@ -25,8 +25,10 @@ void display(int a[],int *front,int *rear)
   if(*front==-1)
    return;
   else
-  for(int i=*front;i<=(*rear);i++)
+  {
+    for(int i=*front;i<=(*rear);i++)
     printf("%d ",a[i]);
+  }
 }
 void enque(int x,int a[],int *front,int *rear)
 {
