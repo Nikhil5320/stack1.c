@@ -1,3 +1,4 @@
+  
 #include<stdio.h>
 #define max 10
 
@@ -21,6 +22,9 @@ int fr(int *front,int a[])
 }
 void display(int a[],int *front,int *rear)
 {
+  if(*front==-1)
+   return;
+  else
   for(int i=*front;i<=(*rear);i++)
     printf("%d ",a[i]);
 }
@@ -49,7 +53,7 @@ void deque(int a[],int *front,int *rear)
     printf("Q is empty");
     return;
    }
-  else if(*front=*rear)
+  else if(*front==*rear)
    *front=*rear=-1;
   else
    *front=*front+1;
@@ -71,8 +75,9 @@ while(n<4)
               display(a,&front,&rear);
               printf("\n");
               break;
-     case 2 : deque(a,&front,&rear);
+     case 2 : 
               f=fr(&front,a);
+              deque(a,&front,&rear);
               printf("the element %d is removed\n",f);
               printf("now the que is : ");
               display(a,&front,&rear);
