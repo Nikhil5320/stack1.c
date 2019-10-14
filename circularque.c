@@ -1,4 +1,3 @@
-
 #include<stdio.h>
 #define max 2
 
@@ -10,9 +9,14 @@ int fr(int *front,int a[])
 }
 void display(int n,int a[],int *front,int *rear)
 {
-  printf("Q elements are: ");
-  for(n=*front;n<=(*rear);n++)
+  printf("Q elements are: \n");
+  if(*front==-1)
+   return;
+  else
+  {
+   for(n=*front;n<=(*rear);n++)
    printf("%d ",a[n]);
+  }
   printf("\n");
 }
 void enque(int a[],int *front,int *rear)
