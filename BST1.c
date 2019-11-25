@@ -7,7 +7,7 @@ typedef struct node
     struct node *rchild;
 }node;
 
-node *root=0;
+
 
 
 
@@ -76,6 +76,7 @@ void display_postorder(node *temp)
 void main()
 {
     int n=1,x;
+    node *root=0;
     while(n!=0)
     {
         printf("\n\nEnter 1 for adding an element to the BST.....\nEnter 2 to display the tree elements in inorder passion\nEnter 3 to display the tree elements in preorder passion\nEnter 3 to display the tree elements in postorder passion\nEnter 0 to terminate\n");
@@ -87,8 +88,8 @@ void main()
                      root=insert(root,x);break;
                      
             case 2 :printf("inorder : "); display_inorder(root);break;
-            case 3 :printf("preorder : "); display_inorder(root);break;
-            case 4 :printf("postorder : "); display_inorder(root);break;
+            case 3 :printf("preorder : "); display_preorder(root);break;
+            case 4 :printf("postorder : "); display_postorder(root);break;
             default :printf("INVALID INPUT!!!");
         }
     }
