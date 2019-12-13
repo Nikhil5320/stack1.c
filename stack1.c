@@ -26,7 +26,7 @@ void push(int x)
 }
 void pop()
 {
-    if(empty()==1)
+    if(empty()==-1)
     printf("there are no elements in stack\n");
     else
     top=top-1;
